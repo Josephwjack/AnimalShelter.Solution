@@ -96,18 +96,18 @@ Add the following to the url of your local host:
 Postman is a resource for testing API calls, follow these steps to utilize this program:
 1. Download [Postman](https://www.postman.com/downloads/). (Sign up is _not_ required).
 2. Once the project API is live on _localhost:5000_, open Postman.
-<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\register.png"></div>
+<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/register.png"></div>
 
 3. Make a **POST** to `localhost:5000/api/authenticate/register`.
 
-<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\login.png"></div>
+<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/login.png"></div>
 
 4. Now just change the url to `/api/authenticate/register` , click send again. You will receive your token in the response body below.
 
-<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\token.png"></div>
+<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/token.png"></div>
 
 5. Copy and paste the your token into the "Authorize" panel , after changing authorization type to bearer token. You're all Set! You can now search for the full list of animals or filter your search by name, species, breed, gender.
- _Example_
+ _Example GET request_
 ``localhost:5000/api/animals/?gender=female``
 
 ---
