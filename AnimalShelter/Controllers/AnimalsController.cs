@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using AnimalShelter.Models;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Animals.Controllers
@@ -28,11 +28,11 @@ namespace Animals.Controllers
         /// Returns a list of all available animals.
          /// </summary>
 
-        
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult<IEnumerable<Animal>> Get(int age, string name, string species, string breed, string gender)
         {
-            
+
             var query = _db.Animals.AsQueryable();
 
             if (name == null && species == null && gender == null && age == 0)
@@ -87,6 +87,7 @@ namespace Animals.Controllers
         /// </remarks>
         /// <returns>A newly created Animal</returns>
         
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Animal>> Post(Animal animal)
         {
@@ -122,7 +123,7 @@ namespace Animals.Controllers
         /// Edits a specific animal by Id.
         /// </summary>
 
-
+        [Authorize]
         [HttpPut("{id}")] 
         public async Task<IActionResult> Put(int id, [FromBody] Animal animal)
         {
@@ -159,7 +160,8 @@ namespace Animals.Controllers
         /// </summary>
         /// <param name="id"></param>
         // DELETE api/animals/5
-        
+
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAnimal(int id)
         {
