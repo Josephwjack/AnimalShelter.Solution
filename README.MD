@@ -4,10 +4,6 @@
 
 #### _Animal Shelter is an API application that is locally hosted. Built with C#/.NET Core , in addition the app utilizes JWT token authorization and authentication. Anonymous users have the ability to look up the full list of animals or one specifically by ID. Registered users are able to post new listings and or edit/delete._
 
----
-
-
-
 
 ---
 ## Setup and Installation Requirements
@@ -47,10 +43,11 @@ This Setup assumes you have GitBash and MySQL Workbench pre-installed.
     └── appsetting.json</pre>
 <li> Insert the following code: <br>
 
-<pre>{
-  "AppSettings": {
-    "Secret": "[YOUR-TOKEN-HERE]"
-    },
+<pre> "JWT": {  
+    "ValidAudience": "http://localhost:4200",  
+    "ValidIssuer": "http://localhost:61955",  
+    "Secret": "[Your-random-key-here]"
+  },
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Port=3306;database=animal_shelter;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
   }
@@ -136,7 +133,7 @@ This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be comp
 |-----|-----|-----|
 |User can register an account in Swagger|"username": "test" , "password":  "test"|"api/Authenticate/register"|
 |User can log in and generate bearer token on Swagger UI|Username and password from above|"/api/Authenticate/login"|
-|User can post, edit, or delete entries once logged in|PUT, POST, or DELETE|"api/Destinations/{id}"|
+|User can post, edit, or delete entries once logged in|PUT, POST, or DELETE|"api/Animals/{id}"|
 
 
 
