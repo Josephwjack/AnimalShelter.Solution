@@ -2,7 +2,7 @@
 
 #### By _**Joseph Jack**_  
 
-#### _A project to introduce practices for building a Web Api and a Client App that consumes it. C#/.NET Core 5.0. Users interact with the Api and database through the localhost on the client app or through Swagger UI. From there users can see lists of destinations and ratings. Additional functionality to edit, post, delete listings. Users must register and login using JWT Tokens to acccess site._
+#### _Animal Shelter is an API application that is locally hosted. Built with C#/.NET Core , in addition the app utilizes JWT token authorization and authentication. Anonymous users have the ability to look up the full list of animals or one specifically by ID. Registered users are able to post new listings and or edit/delete._
 
 ---
 
@@ -91,12 +91,40 @@ Run ```$ dotnet restore``` in the terminal.<br>
 Run ```$ dotnet run``` in the terminal.
 </details>
 <hr/>
+---
 
 ## _To Use Swagger UI_
 Add the following to the url of your local host:
-`` http://localhost:5000/swagger``
-* Keep this programs live server running while using the client side live server to achieve full functionality of the project.
+`` http://localhost:5000/``
+* Swagger endpoint has been modified to just use simplest url.
+1. Click on the **POST /api/Authenticate/register** dropdown under Authenticate.
+2. Select "Try it out" , enter whichever username and password you prefer, proceed to click the blue **Execute** button.
+3. If the call was successfull your account has been created, now you can login under the **POST** section right above register.
+4. Enter credentials, login, and you will recieve a bearer token in the response body that looks like a very large string of random letters/numbers.
+5. Finally navigate to the top of the page and click on the **Authorize** button, paste your Token string in there and select Authorize. 
+6. Congrats! You now have the full functionality of the site.
 <hr/>
+
+## _Postman Instructions_
+Postman is a resource for testing API calls, follow these steps to utilize this program:
+1. Download [Postman](https://www.postman.com/downloads/). (Sign up is _not_ required).
+2. Once the project API is live on _localhost:5000_, open Postman.
+<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\register.png"></div>
+
+3. Make a **POST** to `localhost:5000/api/authenticate/register`.
+
+<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\login.png"></div>
+
+4. Now just change the url to `/api/authenticate/register` , click send again. You will receive your token in the response body below.
+
+<div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\token.png"></div>
+5. Copy and paste the your token into the "Authorize" panel , after changing authorization type to bearer token. You're all Set! You can now search for the full list of animals or filter your search by name, species, breed, gender.
+_Example_
+``localhost:5000/api/animals/?gender=female``
+
+
+
+
 
 This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be compatible with other versions. Cross-version performance is neither implied nor guaranteed, your actual mileage may vary.
 
@@ -115,7 +143,6 @@ This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be comp
 ---
 ## _Known Bugs_
 
-* _User interface allowing users to log in and log out is only on swagger, not the client side application._
 * _Have not established roles in authorization to prevent users from deleting entries that are not theirs._
 
 ## _Legal_
