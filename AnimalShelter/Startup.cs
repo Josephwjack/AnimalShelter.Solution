@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -11,10 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using AnimalShelter.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
+using Microsoft.AspNetCore.Identity;
+using AnimalShelter.Models;
 
 
 namespace AnimalShelter
@@ -36,6 +36,7 @@ namespace AnimalShelter
             services.AddDbContext<AnimalShelterContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -44,6 +45,14 @@ namespace AnimalShelter
                     Title = "Animal Shelter Api",
                     Description = "A site where users can add/list/edit entries of animals listed for adoption."
                 });
+
+
+
+                // Sets the comments path for swagger json and ui
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+                c.IncludeXmlComments(xmlPath);
+            
             });
         }
 
