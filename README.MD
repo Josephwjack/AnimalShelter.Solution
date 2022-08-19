@@ -1,12 +1,12 @@
 # AnimalShelter.Solution
 
-#### By _**Joseph Jack**_  
+#### _By **Joseph Jack**_  
 
 #### _Animal Shelter is an API application that is locally hosted. Built with C#/.NET Core , in addition the app utilizes JWT token authorization and authentication. Anonymous users have the ability to look up the full list of animals or one specifically by ID. Registered users are able to post new listings and or edit/delete._
 
 
 ---
-## Setup and Installation Requirements
+## _Setup and Installation Requirements_
 This Setup assumes you have GitBash and MySQL Workbench pre-installed. 
 <br><small>If you do not have one or both installed, please begin with that setup below. 
 <br>If you _do_ have both installed, move onto "initial setup".</small>
@@ -96,17 +96,19 @@ Add the following to the url of your local host:
 Postman is a resource for testing API calls, follow these steps to utilize this program:
 1. Download [Postman](https://www.postman.com/downloads/). (Sign up is _not_ required).
 2. Once the project API is live on _localhost:5000_, open Postman.
-<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/register.png"></div>
-
 3. Make a **POST** to `localhost:5000/api/authenticate/register`.
 
-<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/login.png"></div>
+<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/register.png"></div>
 
 4. Now just change the url to `/api/authenticate/register` , click send again. You will receive your token in the response body below.
+<div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/login.png"></div>
+
+5. Copy and paste the your token into the "Authorize" panel , after changing authorization type to bearer token. You're all Set! You can now search for the full list of animals or filter your search by name, species, breed, gender.
 
 <div style="display: flex; justify-content: center"><img src="AnimalShelter/wwwroot/images/token.png"></div>
 
-5. Copy and paste the your token into the "Authorize" panel , after changing authorization type to bearer token. You're all Set! You can now search for the full list of animals or filter your search by name, species, breed, gender.
+---
+
  _Example GET request_
 ``localhost:5000/api/animals/?gender=female``
 
@@ -114,7 +116,7 @@ Postman is a resource for testing API calls, follow these steps to utilize this 
 This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be compatible with other versions. Cross-version performance is neither implied nor guaranteed, your actual mileage may vary.
 
 
-## Technologies Used
+## _Technologies Used_
 
 * [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))
 * [.NET](https://dotnet.microsoft.com/en-us/)
