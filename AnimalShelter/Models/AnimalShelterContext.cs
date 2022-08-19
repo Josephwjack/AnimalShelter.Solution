@@ -12,6 +12,7 @@ namespace AnimalShelter.Models
 
         
         public DbSet<Animal> Animals { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,7 +31,11 @@ namespace AnimalShelter.Models
             new Animal { AnimalId = 11, Name = "Gatsby", Gender = "Male", Species = "Dog", Breed = "French bulldog", Age = 2, Description = "Chews on fingers, shoes, literally everything." }
           );
 
-          
+           builder.Entity<User>()
+          .HasData(
+              new User { Id = 1, Username = "Joe", Password = "test" },
+              new User { Id = 2, Username = "NotMe", Password = "test2" }
+          );
         }
     }
 }
