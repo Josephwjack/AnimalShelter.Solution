@@ -32,7 +32,9 @@ namespace Animals.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Animal>> Get(int age, string name, string species, string breed, string gender)
         {
+            
             var query = _db.Animals.AsQueryable();
+
             if (name == null && species == null && gender == null && age == 0)
             {
                 return _db.Animals.ToList();
@@ -116,7 +118,11 @@ namespace Animals.Controllers
             return animal;
         }
 
-        
+        /// <summary>
+        /// Edits a specific animal by Id.
+        /// </summary>
+
+
         [HttpPut("{id}")] 
         public async Task<IActionResult> Put(int id, [FromBody] Animal animal)
         {

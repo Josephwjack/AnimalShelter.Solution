@@ -1,0 +1,15 @@
+/* .opblock-summary-method {
+  border-color: black !important;
+  background: black !important;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+.swagger-ui {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.description {
+  font-weight:bold !important;
+
+}

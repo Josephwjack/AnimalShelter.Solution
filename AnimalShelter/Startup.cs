@@ -73,6 +73,7 @@ namespace AnimalShelter
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnimalShelter v1");
                 c.RoutePrefix = string.Empty;
                 // sets swagger route to application root
+                c.InjectStylesheet("/wwwroot/css/styles.css");
             });
 
             // app.UseHttpsRedirection();
@@ -93,7 +94,7 @@ namespace AnimalShelter
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            app.UseMvc();
+           
         }
     }
 }
