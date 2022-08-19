@@ -21,6 +21,9 @@ namespace AnimalShelter
 {
     public class Startup
     {
+
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -62,13 +65,21 @@ namespace AnimalShelter
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnimalShelter v1"));
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnimalShelter v1");
+                c.RoutePrefix = string.Empty;
+                // sets swagger route to application root
+            });
 
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -81,6 +92,8 @@ namespace AnimalShelter
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
+
+            app.UseMvc();
         }
     }
 }
