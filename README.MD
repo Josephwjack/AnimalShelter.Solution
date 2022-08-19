@@ -7,16 +7,6 @@
 ---
 
 
-## Technologies Used
-
-* [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))
-* [.NET](https://dotnet.microsoft.com/en-us/)
-* [Entity Framework](https://docs.microsoft.com/en-us/ef/)
-* [SQL Workbench](https://www.mysql.com/products/workbench/)
-* [MVC](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
-* [HTML](https://en.wikipedia.org/wiki/HTML)
-* [Swagger](https://swagger.io/)
-* [Postman](https://learning.postman.com/docs/getting-started/introduction/)
 
 
 ---
@@ -118,15 +108,25 @@ Postman is a resource for testing API calls, follow these steps to utilize this 
 4. Now just change the url to `/api/authenticate/register` , click send again. You will receive your token in the response body below.
 
 <div style="display: flex; justify-content: center"><img src="AnimalShelter\wwwroot\token.png"></div>
+
 5. Copy and paste the your token into the "Authorize" panel , after changing authorization type to bearer token. You're all Set! You can now search for the full list of animals or filter your search by name, species, breed, gender.
-_Example_
+ _Example_
 ``localhost:5000/api/animals/?gender=female``
 
-
-
-
-
+---
 This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be compatible with other versions. Cross-version performance is neither implied nor guaranteed, your actual mileage may vary.
+
+
+## Technologies Used
+
+* [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language))
+* [.NET](https://dotnet.microsoft.com/en-us/)
+* [Entity Framework](https://docs.microsoft.com/en-us/ef/)
+* [SQL Workbench](https://www.mysql.com/products/workbench/)
+* [MVC](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
+* [Swagger](https://swagger.io/)
+* [Postman](https://learning.postman.com/docs/getting-started/introduction/)
+
 
 ---
 
